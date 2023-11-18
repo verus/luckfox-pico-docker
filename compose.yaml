@@ -1,0 +1,12 @@
+version: "1"
+services:
+  dev:
+    build: .
+    image: lockfox-pico-sdk
+    container_name: lockfox-pico-sdk
+    tty: true
+    volumes:
+      - ./output:/root/luckfox-pico/output
+    working_dir: /root/luckfox-pico/project
+    entrypoint: ["/bin/bash"]
+    command: []
