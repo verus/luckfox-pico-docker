@@ -76,3 +76,10 @@ Default option is 'allsave'.
 
 see also...
 [LuckfoxTECH/luckfox-pico in github.com](https://github.com/LuckfoxTECH/luckfox-pico/)
+
+FIY
+=====
+if you want to run by colima(not docker-desktop) cause you have apple silicon inside machine, you might to launch command next.
+```bash
+colima start --profile x64 --arch x86_64
+```
