@@ -43,7 +43,7 @@ meta               -build meta (optional)
 uboot              -build uboot
 kernel             -build kernel
 rootfs             -build rootfs
-driver             -build kernel's drivers
+driver             -build kernels drivers
 sysdrv             -build uboot, kernel, rootfs
 media              -build rockchip media libraries
 app                -build app
