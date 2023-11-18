@@ -6,7 +6,7 @@ services:
     container_name: lockfox-pico-sdk
     tty: true
     volumes:
-      - ./output:/root/luckfox-pico/output
+      - ./luckfox-pico:/root/luckfox-pico
     working_dir: /root/luckfox-pico/project
     entrypoint: ["/bin/bash"]
     command: []
