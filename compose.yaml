@@ -1,12 +1,13 @@
 version: "1"
 services:
   dev:
-    build: .
+    build:
+      dockerfile: Dockerfile
     image: lockfox-pico-sdk
     container_name: lockfox-pico-sdk
     tty: true
     volumes:
       - ./luckfox-pico:/root/luckfox-pico
-    working_dir: /root/luckfox-pico/project
+    env_file: environments
+    working_dir: /root/luckfox-pico
     entrypoint: ["/bin/bash"]
-    command: []
