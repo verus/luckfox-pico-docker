@@ -26,10 +26,6 @@ Run next.
 $ ./build.sh
 ```
 
-Deliverables
-============
-Deliverables are wrote `output` directory.
-
 Usable command in virtual environments
 =======
 ```bash
