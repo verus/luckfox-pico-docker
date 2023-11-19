@@ -17,7 +17,7 @@ Usage
 ===========
 Run the host machine.
 ```bash
-$ ./run.sh
+$ make shell
 ```
 
 The virtual machine appear console.
