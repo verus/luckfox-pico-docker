@@ -1,1 +1,3 @@
+REPOSITORY_NAME=luckfox-pico
+REPOSITORY_URL=https://gitee.com/LuckfoxTECH/luckfox-pico.git
 TOOLCHAIN_PATH=/root/luckfox-pico/tools/linux/toolchain/arm-rockchip830-linux-uclibcgnueabihf
