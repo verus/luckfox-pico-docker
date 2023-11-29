@@ -1,13 +1,30 @@
 version: "1"
 services:
   dev:
-    build:
-      dockerfile: Dockerfile
-    image: lockfox-pico-sdk
-    container_name: lockfox-pico-sdk
+    depends_on:
+      repository:
+        condition: service_completed_successfully
+    image: luckfoxtech/luckfox_pico:1.0
     tty: true
     volumes:
-      - ./luckfox-pico:/root/luckfox-pico
+      - repos:/home
     env_file: environments
-    working_dir: /root/luckfox-pico
-    entrypoint: ["/bin/bash"]
+    working_dir: /home/luckfox-pico
+
+  repository:
+    image: buildpack-deps
+    volumes:
+      - repos:/repos
+    working_dir: /repos
+    env_file:
+      - environments
+    command:
+      - /bin/bash
+      - -c
+      - >
+        if [ ! -e "$${REPOSITORY_NAME}" ] ;then
+          git clone "$${REPOSITORY_URL}" "$${REPOSITORY_NAME}"
+        fi
+volumes:
+  repos:
+    name: luckfox-repositories

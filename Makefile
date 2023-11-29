@@ -2,10 +2,7 @@
 
 all: shell
 
-submodules:
-	git submodule sync
-
-launch: submodules
+launch:
 	docker compose up dev -d
 
 stop:
