@@ -1,4 +1,4 @@
-.PHONY: all clean submodules shell
+.PHONY: all clean submodules shell build
 
 ENV_PREFIX := USER_ID=$$(id -u $$USER) GROUP_ID=$$(id -g $$USER)
 DOCKER := docker
@@ -35,6 +35,9 @@ containers-stop: container-environment-check
 
 shell: submodules containers-start
 	$(DOCKER_COMPOSE) exec terminal /bin/bash
+
+build: submodules containers-start
+	$(DOCKER_COMPOSE) exec terminal /bin/bash -c ./build.sh
 
 submodules:
 	git submodule update --init --recursive
