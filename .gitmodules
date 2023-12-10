@@ -1,0 +1,3 @@
+[submodule "luckfox-pico-sdk"]
+	path = luckfox-pico-sdk
+	url = https://github.com/LuckfoxTECH/luckfox-pico.git
