@@ -1,8 +1,12 @@
 version: "1"
+name: luckfox-pico-dev
 services:
-  dev:
+  terminal:
     image: luckfoxtech/luckfox_pico:1.0
     tty: true
     volumes:
       - ./luckfox-pico-sdk:/home/luckfox/pico-sdk
-    working_dir: /home/luckfox
+      - /etc/passwd:/etc/passwd:ro
+      - /etc/group:/etc/group:ro
+    working_dir: /home/luckfox/pico-sdk
+    user: "${USER_ID}:${GROUP_ID}"

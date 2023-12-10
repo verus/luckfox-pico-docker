@@ -1,10 +1,10 @@
-.PHONY: all clean submodules launch shell
+.PHONY: all clean submodules shell
 
+ENV_PREFIX := USER_ID=$$(id -u $$USER) GROUP_ID=$$(id -g $$USER)
 DOCKER := docker
 DOCKER_COMPOSE_COMMAND := $(DOCKER) compose
-DOCKER_COMPOSE_PROJECT := "luckfox-dev"
-DOCKER_COMPOSE_OPT := -p $(DOCKER_COMPOSE_PROJECT)
-DOCKER_COMPOSE := $(DOCKER_COMPOSE_COMMAND) $(DOCKER_COMPOSE_OPT)
+DOCKER_COMPOSE := $(ENV_PREFIX) $(DOCKER_COMPOSE_COMMAND)
+
 
 define is_exists_docker
 	if ! command -v $(DOCKER); then
@@ -34,8 +34,7 @@ containers-stop: container-environment-check
 	$(DOCKER_COMPOSE) down
 
 shell: submodules containers-start
-	$(DOCKER_COMPOSE) exec dev /bin/bash
-	make containers-stop
+	$(DOCKER_COMPOSE) exec terminal /bin/bash
 
 submodules:
 	git submodule update --init --recursive
