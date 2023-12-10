@@ -11,3 +11,6 @@ stop:
 shell: launch
 	docker compose exec dev /bin/bash
 	make stop
+
+submodules:
+	git submodule update --init --recursive
